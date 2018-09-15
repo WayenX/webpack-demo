@@ -23,8 +23,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             // 用哪个html作为模板
             // 在src目录下创建一个index.html页面当做模板来用
-            template: __dirname + '../src/index.html',
-            filename: __dirname + '../build/index.html',
+            template: __dirname + '/../src/index.html',
+            filename: __dirname + '/../build/index.html',
             chunk: ['index'],
             hash: true, // 会在打包好的bundle.js后面加上hash串
         }),
@@ -32,8 +32,8 @@ module.exports = {
         // 热更新，热更新不是刷新
         new webpack.HotModuleReplacementPlugin(),
         // 打包前先清空
-        new CleanWebpackPlugin(path.resolve(__dirname, '../dist'), {
-            root: path.resolve(__dirname, '../'),
+        new CleanWebpackPlugin(path.resolve(__dirname, '../build'), {
+            root: path.resolve(__dirname, '/../'),
             verbose: true
         }),
     ],
@@ -61,7 +61,7 @@ module.exports = {
     },
 
     devServer: {
-        contentBase: './dist',
+        contentBase: path.resolve(__dirname, '../build'),
         host: 'localhost', // 默认是localhost
         port: 3000, // 端口
         // open: true, // 自动打开浏览器
