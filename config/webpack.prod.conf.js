@@ -36,6 +36,7 @@ module.exports = {
             root: path.resolve(__dirname, '/../'),
             verbose: true
         }),
+        require('autoprefixer') //css3前缀添加
     ],
     module: {
         rules: [{
@@ -44,6 +45,7 @@ module.exports = {
                     // 将css用link的方式引入就不再需要style-loader了
                     use: [
                         'css-loader',
+                        'postcss-loader' 
                     ]
                 })
             },
