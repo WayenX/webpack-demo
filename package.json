@@ -4,9 +4,9 @@
   "description": "webpack config demo",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --progress --colors --config build/webpack.dev.conf.js",
-    "devsvr": "webpack-dev-server --mode development --config build/webpack.dev.conf.js",
-    "build": "webpack --mode production --config build/webpack.prod.conf.js"
+    "dev": "webpack --mode development --progress --colors --config config/webpack.dev.conf.js",
+    "devsvr": "webpack-dev-server --mode development --config config/webpack.dev.conf.js",
+    "build": "webpack --mode production --config config/webpack.prod.conf.js"
   },
   "author": "",
   "license": "ISC",

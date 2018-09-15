@@ -6,9 +6,7 @@ if (module.hot) {
     module.hot.accept();
 }
 console.log('hello world');
-// for (var i = 0; i < 10000; i++) {
-// 	console.log(i);
-// }
+
 console.log([1, 2, 3].map(item => item * item));
 
 let a = [1, 2, 3, 4];

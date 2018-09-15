@@ -7,8 +7,6 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-
-
 module.exports = {
     entry: {
         index: './src/index.js'
@@ -16,8 +14,8 @@ module.exports = {
 
     output: {
         // 添加hash可以防止文件缓存，每次都会生成4位的hash串
-        filename: '[name].[hash].js',
-        path: path.resolve(__dirname, '../dist')
+        filename: '[name].js',
+        path: path.resolve(__dirname, '../build')
     },
 
     plugins: [
@@ -25,12 +23,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             // 用哪个html作为模板
             // 在src目录下创建一个index.html页面当做模板来用
-            template: './src/index.html',
-            filename: 'index.html',
+            template: __dirname + '../src/index.html',
+            filename: __dirname + '../build/index.html',
             chunk: ['index'],
             hash: true, // 会在打包好的bundle.js后面加上hash串
         }),
-        new ExtractTextWebpackPlugin('css/[name].[chunkhash].css'),
+        new ExtractTextWebpackPlugin('css/[name].css'),
         // 热更新，热更新不是刷新
         new webpack.HotModuleReplacementPlugin(),
         // 打包前先清空
@@ -53,10 +51,10 @@ module.exports = {
                 test: /\.js$/,
                 use: 'babel-loader',
                 include: [
-                    path.resolve(__dirname, 'src') // 只转化src目录下的js
+                    path.resolve(__dirname, '../src') // 只转化src目录下的js
                 ],
                 exclude: [
-                    path.resolve(__dirname, 'node_modules') // 排除掉node_modules，优化打包速度
+                    path.resolve(__dirname, '../node_modules') // 排除掉node_modules，优化打包速度
                 ]
             }
         ]
@@ -66,7 +64,7 @@ module.exports = {
         contentBase: './dist',
         host: 'localhost', // 默认是localhost
         port: 3000, // 端口
-        open: true, // 自动打开浏览器
+        // open: true, // 自动打开浏览器
         // hot: true               // 开启热更新
     }
 }

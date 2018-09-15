@@ -15,7 +15,7 @@ module.exports = {
     output: {
         // 添加hash可以防止文件缓存，每次都会生成4位的hash串
         filename: '[name].js',
-        path: path.resolve(__dirname, '../dist')
+        path: path.resolve(__dirname, '../build')
     },
 
     plugins: [
@@ -23,8 +23,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             // 用哪个html作为模板
             // 在src目录下创建一个index.html页面当做模板来用
-            template: './src/index.html',
-            filename: 'index.html',
+            template: __dirname + '../src/index.html',
+            filename: __dirname + '../build/index.html',
             chunk: ['index'],
             hash: true, // 会在打包好的bundle.js后面加上hash串
         }),
