@@ -14,7 +14,7 @@ module.exports = {
 
     output: {
         // 添加hash可以防止文件缓存，每次都会生成4位的hash串
-        filename: '[name].[hash].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../dist')
     },
 
@@ -28,7 +28,7 @@ module.exports = {
             chunk: ['index'],
             hash: true, // 会在打包好的bundle.js后面加上hash串
         }),
-        new ExtractTextWebpackPlugin('css/[name].[chunkhash].css'),
+        new ExtractTextWebpackPlugin('css/[name].css'),
         // 热更新，热更新不是刷新
         new webpack.HotModuleReplacementPlugin(),
         // 打包前先清空

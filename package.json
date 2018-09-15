@@ -4,7 +4,7 @@
   "description": "webpack config demo",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --config build/webpack.dev.conf.js",
+    "dev": "webpack --mode development --progress --colors --config build/webpack.dev.conf.js",
     "devsvr": "webpack-dev-server --mode development --config build/webpack.dev.conf.js",
     "build": "webpack --mode production --config build/webpack.prod.conf.js"
   },
@@ -14,6 +14,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
